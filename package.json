@@ -1,0 +1,37 @@
+{
+  "name": "user-monitoring-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:dev:auth": "nest start auth --watch",
+    "start:dev:gateway": "nest start gateway --watch",
+    "start:dev:monitor": "nest start monitor --watch",
+    "build:auth": "nest build auth",
+    "build:gateway": "nest build gateway",
+    "build:monitor": "nest build monitor",
+    "start:prod:auth": "node dist/apps/auth/main.js",
+    "start:prod:gateway": "node dist/apps/gateway/main.js",
+    "start:prod:monitor": "node dist/apps/monitor/main.js"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@nestjs/axios": "^4.0.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/mongoose": "^11.0.3",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.0.0",
+    "bcrypt": "^6.0.0",
+    "mongoose": "^8.15.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0"
+  }
+}
