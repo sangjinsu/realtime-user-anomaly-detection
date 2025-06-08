@@ -4,7 +4,7 @@
     "target": "ES2022",
     "baseUrl": ".",
     "paths": {
-      "@shared/*": ["libs/shared/src/*"]
+      "@core/database": ["libs/database/src/index.ts"]
     },
     "strict": true,
     "experimentalDecorators": true,
