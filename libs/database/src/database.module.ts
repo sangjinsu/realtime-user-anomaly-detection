@@ -1,5 +1,3 @@
-// libs/database/src/database.module.ts
-
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 

@@ -4,7 +4,12 @@
     "target": "ES2022",
     "baseUrl": ".",
     "paths": {
-      "@core/database": ["libs/database/src/index.ts"]
+      "@core/database": [
+        "libs/database/src/index.ts"
+      ],
+      "@core/config": [
+        "libs/config/src/index.ts"
+      ]
     },
     "strict": true,
     "experimentalDecorators": true,
