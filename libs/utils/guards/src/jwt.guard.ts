@@ -1,27 +1,15 @@
 import {CanActivate, ExecutionContext, Injectable, UnauthorizedException,} from '@nestjs/common';
 import {JwtService} from '@nestjs/jwt';
 import {Request} from 'express';
-
-interface JwtPayload {
-    sub: string;
-    role: string;
-    email?: string;
-    [key: string]: any;
-}
-
-interface JwtRequest extends Request {
-    user?: JwtPayload;
-}
-
+import {JwtRequest} from "./jwt.request.type";
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
-    constructor(private readonly jwtService: JwtService) {
-    }
+    constructor(private readonly jwtService: JwtService) {}
 
     async canActivate(context: ExecutionContext): Promise<boolean> {
         const request = context.switchToHttp().getRequest() as JwtRequest;
-        const token = this.extractTokenFromHeader(request);
+        const token = this.extractToken(request);
 
         if (!token) {
             throw new UnauthorizedException('토큰이 없습니다.');
@@ -30,7 +18,7 @@ export class JwtAuthGuard implements CanActivate {
         try {
             request.user = await this.jwtService.verifyAsync(token, {
                 secret: process.env.JWT_SECRET,
-            });
+            }); // 토큰에서 추출한 사용자 정보를 요청 객체에 추가
         } catch {
             throw new UnauthorizedException('유효하지 않은 토큰입니다.');
         }
@@ -38,8 +26,11 @@ export class JwtAuthGuard implements CanActivate {
         return true;
     }
 
-    private extractTokenFromHeader(request: Request): string | undefined {
-        const [type, token] = (request.headers.authorization || '').split(' ');
+    private extractToken(request: Request): string | undefined {
+        const authHeader = request.headers.authorization;
+        if (!authHeader) return undefined;
+
+        const [type, token] = authHeader.split(' ');
         return type === 'Bearer' ? token : undefined;
     }
 }

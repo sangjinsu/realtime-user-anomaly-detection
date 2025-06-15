@@ -2,23 +2,13 @@
   "compilerOptions": {
     "module": "CommonJS",
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types",
-      "libs/types/src/@types"
-    ],
     "baseUrl": ".",
     "paths": {
-      "@core/database": [
-        "libs/database/src/index.ts"
+      "@utils/guards": [
+        "libs/utils/guards/src/index.ts"
       ],
-      "@core/config": [
-        "libs/config/src/index.ts"
-      ],
-      "@core/guards": [
-        "libs/guards/src/index.ts"
-      ],
-      "@core/filters": [
-        "libs/filters/src/index.ts"
+      "@utils/filters": [
+        "libs/utils/filters/src/index.ts"
       ]
     },
     "strict": true,

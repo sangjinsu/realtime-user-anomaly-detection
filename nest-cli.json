@@ -17,31 +17,13 @@
         "tsConfigPath": "apps/auth/tsconfig.app.json"
       }
     },
-    "config": {
-      "type": "library",
-      "root": "libs/config",
-      "entryFile": "index",
-      "sourceRoot": "libs/config/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/config/tsconfig.lib.json"
-      }
-    },
-    "database": {
-      "type": "library",
-      "root": "libs/database",
-      "entryFile": "index",
-      "sourceRoot": "libs/database/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/database/tsconfig.lib.json"
-      }
-    },
     "filters": {
       "type": "library",
-      "root": "libs/filters",
+      "root": "libs/utils/filters",
       "entryFile": "index",
-      "sourceRoot": "libs/filters/src",
+      "sourceRoot": "libs/utils/filters/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/filters/tsconfig.lib.json"
+        "tsConfigPath": "libs/utils/filters/tsconfig.lib.json"
       }
     },
     "gateway": {
@@ -55,11 +37,11 @@
     },
     "guards": {
       "type": "library",
-      "root": "libs/guards",
+      "root": "libs/utils/guards",
       "entryFile": "index",
-      "sourceRoot": "libs/guards/src",
+      "sourceRoot": "libs/utils/guards/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/guards/tsconfig.lib.json"
+        "tsConfigPath": "libs/utils/guards/tsconfig.lib.json"
       }
     },
     "monitor": {
